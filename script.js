@@ -1,4 +1,4 @@
-
+// A function to ask the user between rock paper and scissor
 function playerSelection(){
     let playerChoice = prompt("Pick between rock, paper, and scissors");
     playerChoice.toLowerCase();
@@ -17,14 +17,13 @@ function playRound(playerPick, computerPick){
     console.log("You chose: " + playerPick + " and Opponent chose: " + computerPick);
 }
 
-function game(){
+function game(){ // game() function that calls the playerSelection() and getComputerChoice() and loops it 5 times
     let i = 0;
     while (i < 5){
         let playerPick = playerSelection();
         let computerPick = getComputerChoice();
         playRound(playerPick, computerPick);
         i++
-        console.log(i);
     }
 }
 

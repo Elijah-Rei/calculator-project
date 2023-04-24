@@ -19,10 +19,21 @@ function playRound(playerPick, computerPick){
 
 function game(){ // game() function that calls the playerSelection() and getComputerChoice() and loops it 5 times
     let i = 0;
+    let playerScore;
+    let computerScore;
     while (i < 5){
         let playerPick = playerSelection();
         let computerPick = getComputerChoice();
         playRound(playerPick, computerPick);
+        
+        if (playerPick == computerPick){
+            console.log("Tie");
+        }else if(playerPick == 'rock' && computerPick == 'scissor' || playerPick == 'paper' && computerPick == 'rock' || playerPick == 'scissor' && computerPick == 'paper'){
+            console.log("You won!");
+        }else{
+            console.log("You lost!");
+        }
+
         i++
     }
 }

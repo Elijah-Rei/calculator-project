@@ -5,7 +5,7 @@ function playerSelection(){
     return playerChoice;
 }
 
-// A function for the computer to pick betweek rock paper scissor
+// A function for the computer to pick between rock paper scissor
 function getComputerChoice(){
     let rps = ['rock', 'paper', 'scissor']; 
     let randNum = Math.floor(Math.random() * rps.length); 
@@ -14,10 +14,18 @@ function getComputerChoice(){
 }
 
 function playRound(playerPick, computerPick){
-    console.log("You chose: " + playerPick + "and Opponent chose: " + computerPick);
+    console.log("You chose: " + playerPick + " and Opponent chose: " + computerPick);
 }
 
-let playerPick = playerSelection();
-let computerPick = getComputerChoice();
+function game(){
+    let i = 0;
+    while (i < 5){
+        let playerPick = playerSelection();
+        let computerPick = getComputerChoice();
+        playRound(playerPick, computerPick);
+        i++
+        console.log(i);
+    }
+}
 
-playRound(playerPick, computerPick);
+game();

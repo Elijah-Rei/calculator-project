@@ -19,8 +19,8 @@ function playRound(playerPick, computerPick){
 
 function game(){ // game() function that calls the playerSelection() and getComputerChoice() and loops it 5 times
     let i = 0;
-    let playerScore;
-    let computerScore;
+    let playerScore = 0;
+    let computerScore = 0;
     while (i < 5){
         let playerPick = playerSelection();
         let computerPick = getComputerChoice();
@@ -30,12 +30,21 @@ function game(){ // game() function that calls the playerSelection() and getComp
             console.log("Tie");
         }else if(playerPick == 'rock' && computerPick == 'scissor' || playerPick == 'paper' && computerPick == 'rock' || playerPick == 'scissor' && computerPick == 'paper'){
             console.log("You won!");
+            playerScore++;
         }else{
             console.log("You lost!");
+            computerScore++;
         }
 
         i++
     }
+
+    if(playerScore > computerScore){
+        console.log("Score is " + playerScore + " - " + computerScore + " you won!");
+    }else if(computerScore > playerScore){
+        console.log("Score is " + playerScore + " - " + computerScore+ " you lost!");
+    }else   
+        console.log("Score is " + playerScore + " - " + computerScore+ " its a tie!")
 }
 
 game();

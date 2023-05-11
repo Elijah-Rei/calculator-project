@@ -5,22 +5,24 @@ function playerSelection(){
     playerChoice.toLowerCase();
     return playerChoice;
 }*/
+let playerScore = 0;
+let computerScore = 0;
+let roundsCounter = 0;
 
-// A function for the computer to pick between rock paper scissor
-const btn1 = document.querySelector('#btnRck');
+    const btn1 = document.querySelector('#btnRck');
     btn1.addEventListener('click', () => {
     playRound('rock', getComputerChoice());
-});
+    });
 
-const btn2 = document.querySelector('#btnPpr');
+    const btn2 = document.querySelector('#btnPpr');
     btn2.addEventListener('click', () => {
     playRound('paper', getComputerChoice());
-});
+    });
 
-const btn3 = document.querySelector('#btnSci');
+    const btn3 = document.querySelector('#btnSci');
     btn3.addEventListener('click', () => {
-    playRound('scissors', getComputerChoice());
-});
+    playRound('scissor', getComputerChoice());
+    });
 
 function getComputerChoice(){
     let rps = ['rock', 'paper', 'scissor']; 
@@ -31,33 +33,24 @@ function getComputerChoice(){
 
 function playRound(playerPick, computerPick){
     console.log("You chose: " + playerPick + " and Opponent chose: " + computerPick);
-    game(playerPick, computerPick);
-}
-
-function game(playerPick, computerPick){ // game() function that calls the playerSelection() and getComputerChoice() and loops it 5 times
-    let i = 0;
-    let playerScore = 0;
-    let computerScore = 0;
-
-    while (i < 5){
-        if (playerPick == computerPick){
-            console.log("Tie");
-        }else if(playerPick == 'rock' && computerPick == 'scissor' || playerPick == 'paper' && computerPick == 'rock' || playerPick == 'scissor' && computerPick == 'paper'){
-            console.log("You won!");
-            playerScore++;
-        }else{
-            console.log("You lost!");
-            computerScore++;
-        }
-        i++
+    
+    if (playerPick == computerPick){
+        console.log("Tie");
+        roundsCounter++;
+    }else if(playerPick == 'rock' && computerPick == 'scissor' || playerPick == 'paper' && computerPick == 'rock' || playerPick == 'scissor' && computerPick == 'paper'){
+        console.log("You won!");
+        roundsCounter++;
+    }else{
+        console.log("You lost!");
+        roundsCounter++;
     }
-
-    if(playerScore > computerScore){
-        console.log("Score is " + playerScore + " - " + computerScore + " you won!");
-    }else if(computerScore > playerScore){
-        console.log("Score is " + playerScore + " - " + computerScore+ " you lost!");
-    }else   
-        console.log("Score is " + playerScore + " - " + computerScore+ " its a tie!")
+    
+    if(roundsCounter === 5){
+        if(playerScore > computerScore){
+            console.log("Score is " + playerScore + " - " + computerScore + " you won!");
+        }else if(computerScore > playerScore){
+            console.log("Score is " + playerScore + " - " + computerScore+ " you lost!");
+        }else   
+            console.log("Score is " + playerScore + " - " + computerScore+ " its a tie!")
+    }
 }
-
-//game();

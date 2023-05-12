@@ -5,6 +5,8 @@ function playerSelection(){
     playerChoice.toLowerCase();
     return playerChoice;
 }*/
+//btnTry.style.display = 'none';
+document.getElementById('btnTry').style.display = 'none';
 let playerScore = 0;
 let computerScore = 0;
 let roundsCounter = 0;
@@ -80,7 +82,33 @@ function playRound(playerPick, computerPick){
         playerScore = 0;
         computerScore = 0;
         roundsCounter = 0;
-        //finalScore.textContent = '';
-        //results.appendChild(finalScore);
+        btnTry.style.display = 'block';
     }
+}
+
+const btnTry = document.querySelector('#btnTry');
+    btnTry.addEventListener('click', () => {
+        btnTry.style.display = 'none';
+        tryAgain();
+    })
+
+function tryAgain(){
+
+    playerScore = 0;
+    computerScore = 0;
+    roundsCounter = 0;
+
+    playerPicks.textContent = '';
+    computerPicks.textContent = '';
+    results.textContent = '';
+    score.textContent = '';
+    finalScore.textContent = '';
+
+    results.appendChild(playerPicks);
+    results.appendChild(computerPicks);
+    results.appendChild(results);
+    results.appendChild(score);
+    results.appendChild(finalScore);
+
+    
 }

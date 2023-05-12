@@ -9,12 +9,12 @@ function playerSelection(){
 document.getElementById('btnTry').style.display = 'none';
 let playerScore = 0;
 let computerScore = 0;
-let roundsCounter = 0;
 
 const playerPicks = document.createElement('p');
 const computerPicks = document.createElement('p');
 const score = document.createElement('p');
 const finalScore = document.createElement('p');
+const currentScore = document.createElement('p');
 const results = document.querySelector('.results');
 results.innerHTML = '';
 
@@ -45,29 +45,29 @@ function getComputerChoice(){
 
 function playRound(playerPick, computerPick){
     
-    playerPicks.textContent = "You chose: " + playerPick;
-    computerPicks.textContent = "Opponent chose: " + computerPick;
+    playerPicks.textContent = "You chose: " + playerPick + " vs Opponent chose: " + computerPick;
+    //computerPicks.textContent = ;
     results.appendChild(playerPicks);
-    results.appendChild(computerPicks);
+    //results.appendChild(computerPicks);
     //console.log("You chose: " + playerPick + " and Opponent chose: " + computerPick);
     
     if (playerPick == computerPick){
-        score.textContent = "Tie";
+        score.textContent = `Its a Tie!
+                             Current Score: ${playerScore} vs ${computerScore}`;;
         results.appendChild(score);
-        roundsCounter++;
     }else if(playerPick == 'rock' && computerPick == 'scissor' || playerPick == 'paper' && computerPick == 'rock' || playerPick == 'scissor' && computerPick == 'paper'){
-        score.textContent = "You won!";
-        results.appendChild(score);
         ++playerScore;
-        roundsCounter++;
-    }else{
-        score.textContent = "You lost!";
+        score.textContent = `You won!
+                             Current Score: ${playerScore} vs ${computerScore}`;
         results.appendChild(score);
+    }else{
         ++computerScore;
-        roundsCounter++;
+        score.textContent = `You lost!
+                             Current Score: ${playerScore} vs ${computerScore}`;
+        results.appendChild(score);
     }
 
-    if(roundsCounter === 5){
+    if(playerScore === 5 || computerScore === 5){
         if(playerScore > computerScore){
             finalScore.textContent =  "Score is " + playerScore + " - " + computerScore + " you won!";
             results.appendChild(finalScore);
@@ -81,7 +81,6 @@ function playRound(playerPick, computerPick){
         
         playerScore = 0;
         computerScore = 0;
-        roundsCounter = 0;
         btn1.disabled = true;
         btn2.disabled = true;
         btn3.disabled = true;
@@ -99,7 +98,6 @@ function tryAgain(){
 
     playerScore = 0;
     computerScore = 0;
-    roundsCounter = 0;
 
     results.innerHTML = '';
     btn1.disabled = false;

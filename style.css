@@ -15,3 +15,17 @@ body{
 #btnRck,#btnPpr,#btnSci:hover{
     cursor: pointer;
 }
+
+.container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 30px 0px;
+    flex-direction: column;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}

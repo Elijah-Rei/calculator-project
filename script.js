@@ -69,13 +69,13 @@ function playRound(playerPick, computerPick){
 
     if(playerScore === 5 || computerScore === 5){
         if(playerScore > computerScore){
-            finalScore.textContent =  "Score is " + playerScore + " - " + computerScore + " you won!";
+            finalScore.textContent =  "Score is " + playerScore + " - " + computerScore;
             results.appendChild(finalScore);
         }else if(computerScore > playerScore){
-            finalScore.textContent =  "Score is " + playerScore + " - " + computerScore+ " you lost!";
+            finalScore.textContent =  "Score is " + playerScore + " - " + computerScore;
             results.appendChild(finalScore);
         }else {
-        finalScore.textContent =  "Score is " + playerScore + " - " + computerScore+ " its a tie!";
+        finalScore.textContent =  "Score is " + playerScore + " - " + computerScore;
         results.appendChild(finalScore);
         }
         

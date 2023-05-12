@@ -1,1 +1,1 @@
-# calculator-project
+# rock-paper-scissors game

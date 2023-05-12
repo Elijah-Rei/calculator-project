@@ -1,5 +1,7 @@
 body{
     background-color: antiquewhite;
+    justify-content: center;
+    text-align: center;
 }
 
 #btnRck,#btnPpr,#btnSci{
@@ -8,8 +10,9 @@ body{
 }
 
 #btnRck img, #btnPpr img, #btnSci img{
-    height: 200px;
-    width: auto;
+    width: 200px;
+    height: auto;
+    aspect-ratio: 3/2;
 }
 
 #btnRck,#btnPpr,#btnSci:hover{

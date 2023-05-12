@@ -9,14 +9,17 @@ let playerScore = 0;
 let computerScore = 0;
 let roundsCounter = 0;
 
-const picks = document.createElement('p');
+const playerPicks = document.createElement('p');
+const computerPicks = document.createElement('p');
+const score = document.createElement('p');
+const finalScore = document.createElement('p');
 const results = document.querySelector('.results');
 results.innerHTML = '';
 
 const startBtn = document.querySelector('#startBtn');
-startBtn.addEventListener('click', () => {
-    game();
-})
+//startBtn.addEventListener('click', () => {
+ //   game();
+//})
 
 const btn1 = document.querySelector('#btnRck');
 btn1.addEventListener('click', () => {
@@ -42,30 +45,39 @@ function getComputerChoice(){
 
 function playRound(playerPick, computerPick){
     
-    picks.textContent = "You chose: " + playerPick + " and Opponent chose: " + computerPick;
-    results.appendChild(picks);
+    playerPicks.textContent = "You chose: " + playerPick;
+    computerPicks.textContent = "Opponent chose: " + computerPick;
+    results.appendChild(playerPicks);
+    results.appendChild(computerPicks);
     //console.log("You chose: " + playerPick + " and Opponent chose: " + computerPick);
     
     if (playerPick == computerPick){
-        console.log("Tie");
+        score.textContent = "Tie";
+        results.appendChild(score);
         roundsCounter++;
     }else if(playerPick == 'rock' && computerPick == 'scissor' || playerPick == 'paper' && computerPick == 'rock' || playerPick == 'scissor' && computerPick == 'paper'){
-        console.log("You won!");
+        score.textContent = "You won!";
+        results.appendChild(score);
         ++playerScore;
         roundsCounter++;
     }else{
-        console.log("You lost!");
+        score.textContent = "You lost!";
+        results.appendChild(score);
         ++computerScore;
         roundsCounter++;
     }
-    
+
     if(roundsCounter === 5){
         if(playerScore > computerScore){
-            console.log("Score is " + playerScore + " - " + computerScore + " you won!");
+            finalScore.textContent =  "Score is " + playerScore + " - " + computerScore + " you won!";
+            results.appendChild(finalScore);
         }else if(computerScore > playerScore){
-            console.log("Score is " + playerScore + " - " + computerScore+ " you lost!");
-        }else   
-            console.log("Score is " + playerScore + " - " + computerScore+ " its a tie!")
+            finalScore.textContent =  "Score is " + playerScore + " - " + computerScore+ " you lost!";
+            results.appendChild(finalScore);
+        }else {
+        finalScore.textContent =  "Score is " + playerScore + " - " + computerScore+ " its a tie!";
+        results.appendChild(finalScore);
+        }
         
         playerScore = 0;
         computerScore = 0;
@@ -74,5 +86,5 @@ function playRound(playerPick, computerPick){
 }
 
 function game(){
-    
+
 }

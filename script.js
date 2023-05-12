@@ -82,6 +82,9 @@ function playRound(playerPick, computerPick){
         playerScore = 0;
         computerScore = 0;
         roundsCounter = 0;
+        btn1.disabled = true;
+        btn2.disabled = true;
+        btn3.disabled = true;
         btnTry.style.display = 'block';
     }
 }
@@ -98,17 +101,8 @@ function tryAgain(){
     computerScore = 0;
     roundsCounter = 0;
 
-    playerPicks.textContent = '';
-    computerPicks.textContent = '';
-    results.textContent = '';
-    score.textContent = '';
-    finalScore.textContent = '';
-
-    results.appendChild(playerPicks);
-    results.appendChild(computerPicks);
-    results.appendChild(results);
-    results.appendChild(score);
-    results.appendChild(finalScore);
-
-    
+    results.innerHTML = '';
+    btn1.disabled = false;
+    btn2.disabled = false;
+    btn3.disabled = false;
 }

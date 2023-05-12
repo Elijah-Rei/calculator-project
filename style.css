@@ -2,3 +2,16 @@ body{
     background-color: antiquewhite;
 }
 
+#btnRck,#btnPpr,#btnSci{
+    border: none;
+    background: transparent;
+}
+
+#btnRck img, #btnPpr img, #btnSci img{
+    height: 200px;
+    width: auto;
+}
+
+#btnRck,#btnPpr,#btnSci:hover{
+    cursor: pointer;
+}

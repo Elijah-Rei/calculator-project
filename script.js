@@ -17,9 +17,7 @@ const results = document.querySelector('.results');
 results.innerHTML = '';
 
 const startBtn = document.querySelector('#startBtn');
-//startBtn.addEventListener('click', () => {
- //   game();
-//})
+
 
 const btn1 = document.querySelector('#btnRck');
 btn1.addEventListener('click', () => {
@@ -82,9 +80,7 @@ function playRound(playerPick, computerPick){
         playerScore = 0;
         computerScore = 0;
         roundsCounter = 0;
+        //finalScore.textContent = '';
+        //results.appendChild(finalScore);
     }
-}
-
-function game(){
-
 }
